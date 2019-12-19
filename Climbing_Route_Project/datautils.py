@@ -455,7 +455,7 @@ def view_results(gen_output, threshold, itercount,model, labels, label_mode):
 
 def GANQuantity(gan_labels, gan_predictions):
     """GAN LABEL VS PREDICTED LABEL ACCURACY CALCULATION"""
-    total = gan_label.shape[0]
+    total = gan_labels.shape[0]
     sum_gan = 0
     for i in range(gan_labels.shape[0]):
         if gan_labels[i] == gan_predictions[i]:

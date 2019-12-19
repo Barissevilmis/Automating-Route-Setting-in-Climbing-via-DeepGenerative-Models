@@ -459,53 +459,50 @@ def GANQuantity(gan_labels, gan_predictions):
     sum_gan = 0
     for i in range(gan_labels.shape[0]):
         if gan_labels[i] == gan_predictions[i]:
-           sum_gan += 1
+            sum_gan += 1
     res =  sum_gan / total
     return res
 
 def LabelGANResults(torch_cgan, torch_dcgan, clf , sklearn_flag):
-  """FOR CGAN RESULTS"""
-  if sklearn_flag:
-    test_images_c = torch_cgan.moonboard.cpu().detach()
+    """FOR CGAN RESULTS"""
+    if sklearn_flag:
+        test_images_c = torch_cgan.moonboard.cpu().detach()
+        test_images_c = test_images_c.reshape(test_images_c.shape[0],-1)
+        test_images_c = test_images_c.numpy()
     
-    test_images_c = test_images_c.reshape(test_images_c.shape[0],-1)
-    test_images_c = test_images_c.numpy()
-    
-    
-  else:
-    test_images_c = torch_cgan.moonboard
+    else:
+        test_images_c = torch_cgan.moonboard
   
-  prediction = clf.get_prediction(test_images_c)
+    prediction = clf.get_prediction(test_images_c)
  
-  res = np.zeros(prediction.shape[0])
-  labels = []
-  labels2 = []
-  for i in range(prediction.shape[0]):
-    
-    for j in range(torch_cgan.label_boi):  
-      if sklearn_flag:
-        res[i] = prediction[i]
-        break
-      if max(prediction[i]) == prediction[i,j]:
-        res[i] = j
-    labels.append(grade2Label(res[i]))
-  """FOR DCGAN RESULTS"""
-  if sklearn_flag:
-    test_images_dc = torch_dcgan.moonboard[:,:,:,:18].cpu().detach()
-    test_images_dc = test_images_dc.reshape(test_images_dc.shape[0],-1)
-    test_images_dc = test_images_dc.numpy()
-  else:
-    test_images_dc = torch_dcgan.moonboard[:,:,:,:18]
+    res = np.zeros(prediction.shape[0])
+    labels = []
+    labels2 = []
+    for i in range(prediction.shape[0]):
+        for j in range(torch_cgan.label_boi):  
+            if sklearn_flag:
+                res[i] = prediction[i]
+                break
+            if max(prediction[i]) == prediction[i,j]:
+                res[i] = j
+        labels.append(grade2Label(res[i]))
+    """FOR DCGAN RESULTS"""
+    if sklearn_flag:
+        test_images_dc = torch_dcgan.moonboard[:,:,:,:18].cpu().detach()
+        test_images_dc = test_images_dc.reshape(test_images_dc.shape[0],-1)
+        test_images_dc = test_images_dc.numpy()
+    else:
+        test_images_dc = torch_dcgan.moonboard[:,:,:,:18]
   
-  prediction2 = clf.get_prediction(test_images_dc)
-  res2 = np.zeros(prediction2.shape[0])
-  for i in range(prediction2.shape[0]):
-    for j in range(torch_dcgan.label_boi):
-      if sklearn_flag:
-        res2[i] = prediction[i]
-        break
-      if max(prediction2[i]) == prediction2[i,j]:
-        res[i] = j
-    labels2.append(grade2Label(res2[i]))
+    prediction2 = clf.get_prediction(test_images_dc)
+    res2 = np.zeros(prediction2.shape[0])
+    for i in range(prediction2.shape[0]):
+        for j in range(torch_dcgan.label_boi):
+            if sklearn_flag:
+                res2[i] = prediction[i]
+                break
+            if max(prediction2[i]) == prediction2[i,j]:
+                res[i] = j
+        labels2.append(grade2Label(res2[i]))
 
-  return labels, labels2, torch_cgan.moonboard, torch_dcgan.moonboard[:,:,:,:18]
+    return labels, labels2, torch_cgan.moonboard, torch_dcgan.moonboard[:,:,:,:18]
