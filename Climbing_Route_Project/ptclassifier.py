@@ -83,7 +83,7 @@ class TorchClassifier:
         self.imported_ = True
 
     '''SPLIT DATA INTO TRAIN AND VALIDATION'''
-    def split(self, padding, ratio = 0.2):
+    def split(self, padding, ratio = 0.1):
         self.x_train, self.x_test, self.y_train, self.y_test = train_test_split(self.x, self.y, test_size=ratio, shuffle=True)
         self.split_ = True
         
