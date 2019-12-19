@@ -12,7 +12,7 @@ ALL OF THE REQUIRED DATA FOR RUNNING THE MAIN CODE ARE PROVIDED: PLEASE FOLLOW T
 
 1) UPLOAD SUBMISSION FOLDER(Climbing_Route_Project) TO GOOGLE DRIVE AND USE GOOGLE COLAB: THERE ARE MANY DEPENDENCIES AND REQUIREMENTS, THEREFORE RUNNING THE CODE ON YOUR LOCAL MACHINE MAY CAUSE PROBLEMS :=> USE GOOGLE COLAB!!!: -Upload whole submit folder to Google Drive by using upload folder option in your drive(Please upload your folder in the root of drive :=> Do not upload within other folders in Google Drive).
 
-2) OPEN main.ipynb DIRECTLY WITH GOOGLE COLAB
+2) ONCE Climbing_Route_Project UPLOADED: OPEN main.ipynb DIRECTLY WITH GOOGLE COLAB
 
 3) ENTER NOTEBOOK SETTINGS: 
 
