@@ -205,7 +205,7 @@ class ClassifierSklearn:
 
     """VALIDATION SCORE"""
     def get_score(self):
-        return (accuracy_score(self.y_test, self.get_prediction(self.x_test)), self.end - self.start, self.best_params )
+        return (accuracy_score(self.y_test, self.get_prediction(self.x_test),normalize = False), self.end - self.start, self.best_params )
 
     
     """CROSSVALIDATION SCORE"""
