@@ -1,7 +1,12 @@
 Automated Climbing Route Generation, Classification and Regression:
-PLEASE CONTACT ONE OF THE PROJECT CONTRIBUTORS IN CASE OF PROBLEMS: Baris Sevilmis: baris.sevilmis@epfl.ch
-       	       	      	  	  	       	       	  	    Berk Mandiracioglu: berk.mandiracioglu@epfl.ch
-								    Onur Veyisoglu: onur.veyisoglu@epfl.ch
+
+PLEASE CONTACT ONE OF THE PROJECT CONTRIBUTORS IN CASE OF PROBLEMS: 
+
+*Baris Sevilmis: baris.sevilmis@epfl.ch
+ 
+*Berk Mandiracioglu: berk.mandiracioglu@epfl.ch
+
+*Onur Veyisoglu: onur.veyisoglu@epfl.ch
 
 ALL OF THE REQUIRED DATA FOR RUNNING THE MAIN CODE ARE PROVIDED: PLEASE FOLLOW THE GIVEN STEPS TO RUN THE CODE WITHOUT ANY PROBLEMS:
 
