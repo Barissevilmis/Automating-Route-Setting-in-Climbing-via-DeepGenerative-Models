@@ -14,6 +14,7 @@ import io
 import time
 from sklearn.model_selection import cross_val_score
 import cv2
+from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import confusion_matrix 
 from sklearn.tree import DecisionTreeClassifier 
@@ -114,10 +115,12 @@ class RegressorSklearn:
     """PREDICT LABEL"""
     def get_prediction(self, x_input):  
         self.predict = self.model.predict(x_input)
+        self.predict = np.rint(self.predict)
+        return self.predict
 
     """R2 SCORE FOR THE REGRESSOR"""
-    def get_accuracy_score_regressor(self):
-        return (r2_score(self.y_test, self.predict), self.end - self.start, self.best_params)
+    def get_score(self):
+        return (accuracy_score(self.y_test, self.get_prediction(self.x_test)), self.end - self.start, self.best_params)
 
 ###########################################################################
 ###########################################################################
@@ -202,7 +205,7 @@ class ClassifierSklearn:
 
     """VALIDATION SCORE"""
     def get_score(self):
-        return (self.model.score(self.x_test, self.y_test), self.end - self.start, self.best_params )
+        return (accuracy_score(self.y_test, self.get_prediction(self.x_test),normalize = False), self.end - self.start, self.best_params )
 
     
     """CROSSVALIDATION SCORE"""
