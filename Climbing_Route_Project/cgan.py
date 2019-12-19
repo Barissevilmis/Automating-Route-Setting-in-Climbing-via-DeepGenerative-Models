@@ -300,6 +300,7 @@ class TorchCGAN:
                 self.optimizer_gen.step()
 
                 self.gen_losses.append(gen_train_loss.item())
+                self.last_batch_labels = labels
 
             end = time.time()
             per_epoch = end - strt
